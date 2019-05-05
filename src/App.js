@@ -1,24 +1,25 @@
+//1. npm install --save react react-redux
+//2. Creat src/App.js and import the required libs:
 import React from "react";
 import { View } from "react-native";
-//Redux specific
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-//Get Reducers
 import reducers from "./reducers";
-//Get the Header Component
 import { Header } from "./components/common";
-// import LibraryList from "./components/LibraryList";
+import LibraryList from "./components/LibraryList";
+
+//3. Create a Functional Component:
 
 const App = () => {
-return (
-// Provider can only have one child component
-<Provider store={createStore(reducers)}>
-<View>
-<Header headerText="Redux Demo -- Tech Stack" />
-{/* <LibraryList /> */}
-</View>
-</Provider>
-);
+  return (
+    <Provider store={createStore(reducers)}>
+      <View style={{ flex: 1 }}>
+        <Header headerText="Tech Stack" />
+        <LibraryList />
+      </View>
+    </Provider>
+  );
 };
 
-export default App;
+//4. Export the Component:
+export default App
